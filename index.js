@@ -26,10 +26,11 @@ async function startSock() {
   sock = makeWASocket({ auth: state, logger, printQRInTerminal: false });
 
   sock.ev.on("connection.update", ({ connection, qr, lastDisconnect }) => {
-    if (qr) {
-      console.log("📲 Scan this QR to login:");
-      qrcode.generate(qr, { small: true });
-    }
+   if (qr) {
+  const qrLink = `https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=${encodeURIComponent(qr)}`;
+  console.log("📲 Scan this QR: " + qrLink);
+}
+
 
     if (connection === "open") console.log("✅ WhatsApp Connected");
 
