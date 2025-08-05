@@ -1,3 +1,9 @@
 auth_info/
 uploads/
 node_modules/
+
+
+
+git remote add origin https://github.com/ChiragMakvana09/whatsapp-send-PDF.git
+git branch -M main
+git push -u origin main
